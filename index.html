@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- polices : inter : texte, saira : titres -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Saira:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Gaspard Piffaut — Portfolio</title>
+</head>
+
+<body>
+    <!-- Tout votre HTML doit se trouver après cette ligne -->
+
+    <!-- +++++ navbar +++++ -->
+    <nav>
+        <!-- logo qui ramène en haut de la page -->
+        <a href="#accueil" class="logo">GP</a>
+
+        <!-- teleporters aux diff sections de la page -->
+        <ul class="menu">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#a-propos">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#formulaire" class="bouton bouton-jaune">Me contacter</a>
+    </nav>
+
+    <!-- +++++ header +++++ -->
+    <header id="accueil">
+        <!-- texte a gauche -->
+        <div class="header-texte">
+            <h1>Gaspard<br>Piffaut</h1>
+            <p>Étudiant en B1 à l'IIM Nantes. Je m'exerce dans l'animation, la 3D et le VFX, principalement pour le développement sur Roblox.</p>
+            <a href="#projets" class="bouton">Voir mes projets</a>
+        </div>
+
+        <!-- toutes les slides et le JS fait la suite -->
+        <div class="header-image">
+            <!-- L'IA M'A DONNÉ CES 3 ATTRIBUTS, JE NE SAVAIS PAS COMMENT FAIRE MAIS JE LES AI COMPRIS MAINTENANT -->
+            <!-- autoplay = se lance toute seule, muted = sans le son (obligatoire pour autoplay), loop = en boucle -->
+            <video class="slide active" src="videos/banniere.mp4" autoplay muted loop></video>
+            <img class="slide" src="images/VFXBanner.png" alt="VFX Roblox Studio">
+            <img class="slide" src="images/BlenderBanner.png" alt="Modèles 3D Blender">
+
+            <!-- fleches pour changer de slide & arial pour la convention -->
+            <button class="fleche fleche-gauche" id="precedent" aria-label="Image précédente">‹</button>
+            <button class="fleche fleche-droite" id="suivant" aria-label="Image suivante">›</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- +++++ projets +++++ -->
+        <section id="projets">
+            <h2>Projets</h2>
+
+            <!-- formattage des cartes -->
+            <div class="cartes">
+                <article class="carte">
+                    <!-- cadre de l'image -->
+                    <div class="carte-image"><img src="images/couvertures/auras.webp" alt="Auras Roblox Studio"></div>
+                    <div class="carte-texte">
+                        <p class="carte-info">VFX · Roblox Studio · Octobre 2026</p>
+                        <h3>Stylized Auras VFX</h3>
+                        <p>Auras faites à la main sur Roblox Studio. Commissions ouvertes.</p>
+                    </div>
+                </article>
+
+                <article class="carte">
+                    <div class="carte-image"><img src="images/couvertures/vfx.webp" alt="Swords & Portals VFX"></div>
+                    <div class="carte-texte">
+                        <p class="carte-info">VFX · Roblox Studio · Juillet/Août 2026</p>
+                        <h3>Sword & Portal VFX</h3>
+                        <p>Portails & épées faites à la main sur Roblox Studio. Commissions ouvertes.</p>
+                    </div>
+                </article>
+
+                <article class="carte">
+                    <div class="carte-image"><img src="images/couvertures/robot.webp" alt="Mécha LEGO en 3D"></div>
+                    <div class="carte-texte">
+                        <p class="carte-info">Modélisation 3D · Blender · Septembre 2026</p>
+                        <h3>LEGO mécha 3D</h3>
+                        <p>Modélisation pièces par pièces. Réalisée dans le cadre d'un projet avec mon école.</p>
+                    </div>
+                </article>
+
+                <article class="carte">
+                    <div class="carte-image"><img src="images/couvertures/armes.webp" alt="Modèles d'épees en 3D"></div>
+                    <div class="carte-texte">
+                        <p class="carte-info">Modélisation 3D · Blender · Août 2026</p>
+                        <h3>Swords & Scythe 3D</h3>
+                        <p>Models fait à la main sur Blender. Commissions ouvertes.</p>
+                    </div>
+                </article>
+
+                <!-- carte avec la vidéo -->
+                <article class="carte">
+                    <div class="carte-image"><video src="videos/banniere.mp4" autoplay muted loop></video></div>
+                    <div class="carte-texte">
+                        <p class="carte-info">Animation Pack · Roblox Studio · Juillet 2026</p>
+                        <h3>Animation Pack</h3>
+                        <p>Premier animation pack pour Roblox Studio. Fait entièrement à la main. Commissions ouvertes.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- +++++ présentation +++++ -->
+        <section id="presentation">
+            <!-- texte centré comme sur le site de rl -->
+            <div class="intro">
+                <h2>Bienvenue sur mon portfolio !</h2>
+                <p>Gaspard, étudiant en B1 à l'IIM et passionné par la création digitale et le développement de jeux vidéo en général.</p>
+                <p>Ici se trouvent mes projets, mes compétences et les moyens de me contacter.</p>
+            </div>
+
+            <!-- text a gauche, img a droite -->
+            <div class="bloc" id="a-propos">
+                <div class="bloc-texte">
+                    <h3>À propos</h3>
+                    <p>J'explore le domaine du VFX et de l'animation sur Roblox depuis des années, mais ce n'est que récemment que j'ai commencé sérieusement à composer. J'apprends aussi à modéliser en 3D.</p>
+                    <a href="#projets" class="bouton">Mes projets</a>
+                </div>
+
+                <!-- showcase des weapons -->
+                <div class="mini-galerie">
+                    <img src="images/armes-3d/epee-longue.webp" alt="épée longue">
+                    <img src="images/armes-3d/faux.webp" alt="faux">
+                    <img src="images/armes-3d/epee-large.webp" alt="épee large">
+                    <img src="images/armes-3d/epee-longue-detail.webp" alt="détail épée longue">
+                    <img src="images/armes-3d/faux-detail.webp" alt="détail faux">
+                    <img src="images/armes-3d/epee-large-detail.webp" alt="détail épée large">
+                </div>
+            </div>
+
+            <!-- 6 icones des logiciels -->
+            <div class="bloc" id="competences">
+                <ul class="icones">
+                    <li><img src="images/icones/roblox-studio.webp" alt="Roblox Studio">Roblox Studio</li>
+                    <li><img src="images/icones/blender.webp" alt="Blender">Blender</li>
+                    <li><img src="images/icones/eclipse-animator.png" alt="Eclipse Animator - Plugin Roblox Studio">Eclipse Animator</li>
+                    <li><img src="images/icones/figma.png" alt="Figma">Figma</li>
+                    <li><img src="images/icones/vscode.png" alt="VS Code">VS Code</li>
+                    <li><img src="images/icones/obsidian.png" alt="Obsidian">Obsidian</li>
+                </ul>
+
+                <!-- text a droite, imgs a gauche -->
+                <div class="bloc-texte">
+                    <h3>Compétences</h3>
+                    <p>Voici les logiciels avec lesquels je travaille. Ils me servent tous les jours dans mes projets.</p>
+                    <a href="#formulaire" class="bouton">Me contacter</a>
+                </div>
+            </div>
+
+            <!-- text a gauche, img a droite -->
+            <div class="bloc" id="contact">
+                <div class="bloc-texte">
+                    <h3>Contact</h3>
+                    <ul class="contacts">
+                        <!-- mailto: ouvre la messagerie du visiteur -->
+                        <li>E-mail : <a href="mailto:gasp.piffaut@gmail.com">gasp.piffaut@gmail.com</a></li>
+                        <!-- target="_blank" ouvre le lien dans un nouvel onglet -->
+                        <li>GitHub : <a href="https://github.com/GoldyPepperr" target="_blank">GoldyPepperr</a></li>
+                        <li>LinkedIn : <a href="https://www.linkedin.com/in/gaspard-piffaut-b70173447/" target="_blank">Gaspard Piffaut</a></li>
+                        <li>Discord : deflectionss</li>
+                    </ul>
+                    <a href="#formulaire" class="bouton">M'écrire</a>
+                </div>
+
+                <!-- showcase du mécha -->
+                <div class="mini-galerie">
+                    <img src="images/robot/rendu.webp" alt="Robot mécha, rendu final">
+                    <img src="images/robot/face.webp" alt="Robot mécha, vue de face">
+                    <img src="images/robot/couleurs.webp" alt="Robot mécha, chaque pièce dans une couleur différente">
+                    <img src="images/robot/profil.webp" alt="Robot mécha, vue de profil">
+                    <img src="images/robot/dessus.webp" alt="Robot mécha, vue de dessus">
+                    <img src="images/robot/dessous.webp" alt="Robot mécha, vue de dessous">
+                </div>
+            </div>
+        </section>
+
+        <!-- +++++ formulaire +++++ -->
+        <section id="formulaire">
+            <h2>Me contacter</h2>
+            <p>Laissez-moi un message, je vous répondrai au plus vite.</p>
+
+            <!-- l'IA a apporté le "niovalidateé" pour que tt soit fait en JS -->
+            <form id="formulaire-contact" novalidate>
+                <!-- cliquer sur le texte sélectionne la case -->
+                <label for="nom">Nom</label>
+                <input type="text" id="nom">
+
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom">
+
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email">
+
+                <label for="commentaire">Commentaire</label>
+                <textarea id="commentaire" rows="5"></textarea>
+
+                <button type="submit" class="bouton">Envoyer</button>
+
+                <!-- si paragraphe vide, le JS écrit résulatat -->
+                <p id="message"></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- +++++ footer +++++ -->
+    <footer>
+        <!-- listes de liens -->
+        <div class="footer-colonnes">
+            <div>
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#formulaire">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Réseaux</h3>
+                <ul>
+                    <li><a href="https://github.com/GoldyPepperr" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/gaspard-piffaut-b70173447/" target="_blank">LinkedIn</a></li>
+                    <li><a href="mailto:gasp.piffaut@gmail.com">E-mail</a></li>
+                    <li>Discord : deflectionss</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- phrase dans le footer et cadre à gauche -->
+        <div class="footer-milieu">
+            <p>Merci de votre visite !</p>
+            <div class="footer-encadre">
+                <p>Étudiant à l'IIM Nantes</p>
+                <p>Contactez-moi !</p>
+            </div>
+        </div>
+
+        <!-- copyright & bouton retour en haut -->
+        <div class="footer-bas">
+            <p>© 2026 Gaspard Piffaut. Design inspiré du site de Rocket League, projet étudiant.</p>
+            <a href="#accueil" class="bouton bouton-gris">Retour en haut</a>
+        </div>
+    </footer>
+
+    <!-- Ne rien écrire ni modifier en dessous de cette ligne -->
+    <script src="javascript.js"></script>
+</body>
+</html>

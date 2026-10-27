@@ -1,0 +1,546 @@
+/* Global reset basique : */
+/* Pour garantir une apparence homogène entre différents navigateurs */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tout votre code CSS doit se trouver en dessous de cette ligne */
+
+/* couleurs du site (reprises de la maquette) :
+   #0b0b21 fond bleu nuit       #1b1b22 navbar
+   #22223a fond des cartes      #19191c footer
+   #ec7a1c orange (boutons)     #ffab1f jaune (survol, bouton de la navbar)
+   #b9b9c6 texte gris           #2e2e36 lignes de séparation */
+
+/* +++++ général +++++ */
+html {
+    /* défilement doux quand on clique sur un lien du menu */
+    scroll-behavior: smooth;
+    /* L'IA A FAIT CETTE LIGNE POUR MOI, JE NE SAVAIS PAS COMMENT LA FAIRE MAIS JE L'AI COMPRISE MAINTENANT */
+    /* laisse 70px en haut pour que la navbar ne cache pas les titres */
+    scroll-padding-top: 70px;
+}
+
+body {
+    background-color: #0b0b21;
+    color: white;
+    font-family: "Inter", sans-serif;
+    /* espace entre les lignes */
+    line-height: 1.6;
+}
+
+/* liens blancs sans soulignement */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* enlever les puces des listes */
+ul {
+    list-style: none;
+}
+
+/* tous les titres en saira et en majuscules */
+h1,
+h2,
+h3 {
+    font-family: "Saira", sans-serif;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+/* +++++ boutons +++++ */
+/* bouton orange de base, utilisé partout */
+.bouton {
+    /* inline-block pour que le lien prenne le padding comme un vrai bouton */
+    display: inline-block;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ec7a1c;
+    color: black;
+    font-family: "Saira", sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    text-transform: uppercase;
+    /* curseur en forme de main au survol */
+    cursor: pointer;
+}
+
+.bouton:hover {
+    background-color: #ff9a45;
+}
+
+/* bouton jaune ("Me contacter" de la navbar) */
+.bouton-jaune {
+    background-color: #ffab1f;
+}
+
+/* bouton gris ("Retour en haut") */
+.bouton-gris {
+    background-color: #3a3a42;
+    color: white;
+}
+
+.bouton-gris:hover {
+    background-color: #4a4a54;
+}
+
+/* +++++ navbar +++++ */
+nav {
+    /* L'IA A FAIT LES 3 LIGNES SUIVANTES POUR MOI, JE NE SAVAIS PAS COMMENT LES FAIRE MAIS JE LES AI COMPRISES MAINTENANT */
+    /* sticky = la navbar reste collée en haut quand on descend, z-index = elle passe au dessus du reste */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* logo, menu et bouton sur une ligne */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* 40px sur les côtés comme le header et les projets pour que tout soit aligné */
+    padding: 12px 40px;
+    background-color: #1b1b22;
+}
+
+.logo {
+    font-family: "Saira", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+    /* pousse le bouton "Me contacter" tout a droite */
+    margin-right: auto;
+}
+
+.menu a {
+    font-weight: 600;
+}
+
+.menu a:hover {
+    color: #ffab1f;
+}
+
+/* +++++ header +++++ */
+header {
+    /* texte et bannière côte à côte */
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    /* sur les grands écrans le header fait max 1600px et reste centré */
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 50px 40px 60px;
+}
+
+.header-texte {
+    width: 440px;
+    text-align: center;
+    /* le texte apparait en fondu au chargement (voir @keyframes en dessous) */
+    animation: apparition 0.8s ease-out;
+}
+
+/* L'IA A FAIT CETTE ANIMATION POUR MOI, JE NE SAVAIS PAS COMMENT LA FAIRE MAIS JE L'AI COMPRISE MAINTENANT */
+/* on passe de invisible et 30px plus bas, a visible et a sa place */
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 90px;
+    /* lignes du titre plus serrées */
+    line-height: 0.9;
+}
+
+.header-texte p {
+    margin: 12px 0 18px;
+    font-size: 18px;
+}
+
+/* cadre de la bannière */
+.header-image {
+    /* les slides et les fleches se placent par rapport a ce cadre */
+    position: relative;
+    /* la bannière prend toute la place qui reste a côté du texte */
+    flex: 1;
+    /* L'IA A FAIT CETTE LIGNE POUR MOI, JE NE SAVAIS PAS COMMENT LA FAIRE MAIS JE L'AI COMPRISE MAINTENANT */
+    /* la bannière est toujours 2 fois plus large que haute, comme les images */
+    aspect-ratio: 2 / 1;
+    /* cacher ce qui dépasse */
+    overflow: hidden;
+    /* ombre floue autour, comme sur la maquette */
+    box-shadow: 0 0 40px 20px #1f1f40;
+}
+
+/* L'IA A FAIT CETTE PARTIE POUR MOI, JE NE SAVAIS PAS COMMENT LA FAIRE MAIS JE L'AI COMPRISE MAINTENANT */
+/* toutes les slides sont empilées les unes sur les autres et cachées... */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* l'image remplit le cadre sans être déformée */
+    object-fit: cover;
+    opacity: 0;
+    /* fondu de 0,6s quand on change de slide */
+    transition: opacity 0.6s;
+}
+
+/* ...sauf celle qui a le tag active */
+.slide.active {
+    opacity: 1;
+}
+
+/* fleches en bas a droite de la bannière */
+.fleche {
+    position: absolute;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 4px;
+    /* noir a 60% pour voir un peu l'image derrière */
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.fleche:hover {
+    background-color: #ec7a1c;
+    color: black;
+}
+
+.fleche-gauche {
+    right: 68px;
+}
+
+.fleche-droite {
+    right: 16px;
+}
+
+/* +++++ projets +++++ */
+#projets {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+}
+
+#projets h2 {
+    margin-bottom: 16px;
+}
+
+/* les 5 cartes sur une ligne */
+.cartes {
+    display: flex;
+    gap: 16px;
+}
+
+.carte {
+    /* les 5 cartes ont la même largeur */
+    flex: 1;
+    border-radius: 4px;
+    background-color: #22223a;
+    overflow: hidden;
+    /* la carte monte doucement au survol */
+    transition: transform 0.3s;
+}
+
+/* cadre de l'image : 5 de large pour 7 de haut */
+.carte-image {
+    aspect-ratio: 5 / 7;
+    /* coupe l'image quand elle zoome */
+    overflow: hidden;
+}
+
+/* image ou vidéo qui remplit le cadre, un peu sombre au départ */
+.carte img,
+.carte video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+    transition: transform 0.4s, filter 0.4s;
+}
+
+/* au survol la carte monte de 6px... */
+.carte:hover {
+    transform: translateY(-6px);
+}
+
+/* L'IA A FAIT CETTE PARTIE POUR MOI, JE NE SAVAIS PAS COMMENT LA FAIRE MAIS JE L'AI COMPRISE MAINTENANT */
+/* ...et l'image s'éclaire et zoome un peu */
+.carte:hover img,
+.carte:hover video {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.carte-texte {
+    padding: 14px 18px 20px;
+}
+
+/* petite ligne grise au dessus du titre ("VFX · Roblox Studio") */
+.carte-info {
+    font-size: 12px;
+    color: #b9b9c6;
+}
+
+.carte h3 {
+    margin: 4px 0 8px;
+    font-size: 18px;
+}
+
+.carte-texte p {
+    font-size: 15px;
+}
+
+/* +++++ présentation +++++ */
+/* texte centré, max 760px de large pour que ce soit lisible */
+.intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 50px 24px 70px;
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+/* un bloc = du texte d'un côté et des images de l'autre */
+.bloc {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1080px;
+    margin: 0 auto 30px;
+    padding: 0 16px;
+}
+
+/* texte = 45% de la largeur, images = le reste */
+.bloc-texte {
+    width: 45%;
+    padding: 0 24px;
+}
+
+.bloc-texte p,
+.contacts {
+    margin: 6px 0 16px;
+    font-size: 17px;
+}
+
+/* ligne de séparation sous chaque contact */
+.contacts li {
+    padding: 6px 0;
+    border-bottom: 1px solid #2e2e36;
+}
+
+.contacts a:hover {
+    color: #ffab1f;
+}
+
+/* galeries d'images (armes et mécha) */
+.mini-galerie {
+    display: flex;
+    /* les images passent a la ligne quand y'a plus de place */
+    flex-wrap: wrap;
+    /* les images s'écartent pour remplir toute la largeur */
+    justify-content: space-between;
+    gap: 8px;
+    width: 55%;
+}
+
+/* 32% de large = 3 images par ligne */
+.mini-galerie img {
+    width: 32%;
+    border-radius: 4px;
+}
+
+/* icones des logiciels, même principe que la galerie */
+.icones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    width: 55%;
+}
+
+/* une case par logiciel : icone en haut, nom en dessous */
+.icones li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 31%;
+    padding: 20px 10px;
+    border-radius: 6px;
+    background-color: #22223a;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* l'icone garde ses proportions dans un carré de 56px */
+.icones img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+/* +++++ formulaire +++++ */
+#formulaire {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 60px 16px 90px;
+    text-align: center;
+}
+
+#formulaire h2 {
+    font-size: 40px;
+}
+
+/* champs les uns sous les autres */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 28px;
+    border-radius: 6px;
+    background-color: #22223a;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    margin-bottom: 8px;
+    padding: 11px 14px;
+    border: 1px solid #2e2e36;
+    border-radius: 4px;
+    background-color: #0b0b21;
+    color: white;
+    /* les champs ne prennent pas la police du site tout seuls */
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+}
+
+/* bordure orange sur le champ où on écrit */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ec7a1c;
+}
+
+/* le bouton "Envoyer" reste a gauche au lieu de prendre toute la largeur */
+form .bouton {
+    align-self: flex-start;
+}
+
+#message {
+    font-size: 14px;
+}
+
+/* tags ajoutés par le JS : rouge si erreur, vert si succès */
+.erreur {
+    color: #ff5c7a;
+}
+
+.succes {
+    color: #3ddc84;
+}
+
+/* +++++ footer +++++ */
+footer {
+    padding: 60px 10% 30px;
+    background-color: #19191c;
+    color: #b9b9c6;
+    font-size: 14px;
+}
+
+/* liens gris, blancs au survol */
+footer a {
+    color: #b9b9c6;
+}
+
+footer a:hover,
+footer h3 {
+    color: white;
+}
+
+/* 2 colonnes de liens côte à côte */
+.footer-colonnes {
+    display: flex;
+    padding: 36px 14px;
+    border-top: 1px solid #2e2e36;
+}
+
+.footer-colonnes div {
+    width: 50%;
+}
+
+/* titres du footer plus petits, en inter et sans majuscules */
+footer h3 {
+    margin-bottom: 6px;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    text-transform: none;
+}
+
+footer li {
+    margin-top: 10px;
+}
+
+/* un élément collé a gauche, l'autre collé a droite */
+.footer-milieu,
+.footer-bas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 1px solid #2e2e36;
+}
+
+.footer-encadre {
+    padding: 16px 24px;
+    border: 1px solid #2e2e36;
+    border-radius: 8px;
+    background-color: #232327;
+}
+
+/* ligne de séparation sous le premier texte de l'encadré */
+.footer-encadre p:first-child {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #2e2e36;
+}
+
+/* J'ai utilisé l'ia pour clean up le code parce que le css partait dans tous les sens */
